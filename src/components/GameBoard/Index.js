@@ -1,2 +1,2 @@
-export * from "./GameBoard";
-export { default } from "./GameBoard";
+export * from './GameBoard';
+export { default } from './GameBoard';

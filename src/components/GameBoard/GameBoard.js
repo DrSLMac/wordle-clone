@@ -1,25 +1,33 @@
 import React from "react";
 import { range } from "../../utils";
-
 import { checkGuess } from "../../game-helpers";
 
 function Cell({ letter, status }) {
+ 
   const className = status ? `cell ${status}` : "cell";
-
-  return <span className={className}>{letter}</span>;
+  return (
+    <span className={className}>
+      {letter}
+    </span>
+  );
 }
 
 function GameBoard({ value, answer }) {
   const result = checkGuess(value, answer);
 
-  return <p className="guess">{range(5).map((num) => (
-    <Cell 
+  // console.log("result: ", result);
 
-      key={num}
-      letter={result ? result[num].letter : undefined}
-      status={result ? result[num].status : undefined}
-    />
-  ))}</p>;
+  return (
+    <p className="guess">
+      {range(5).map((num) => (
+        <Cell
+          key={num}
+          letter={result ? result[num].letter : null}
+          status={result ? result[num].status : null}
+        />
+      ))}
+    </p>
+  );
 }
 
 export default GameBoard;
